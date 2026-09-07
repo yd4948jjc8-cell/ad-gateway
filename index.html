@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cargando enlace...</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 20px; background: #f4f4f9; }
+    .card { background: white; padding: 20px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .timer { font-size: 24px; font-weight: bold; color: #ff4757; margin: 15px 0; }
+    .btn { display: inline-block; padding: 12px 24px; background: #2ed573; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; pointer-events: none; opacity: 0.5; }
+    .btn.active { pointer-events: auto; opacity: 1; }
+    .ad-container { margin: 20px 0; min-height: 250px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Tu enlace se está preparando...</h2>
+    <div class="timer" id="countdown">5</div>
+    
+    <div class="ad-container">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '554b585862c12bf2f233b79c8120fc9f',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/554b585862c12bf2f233b79c8120fc9f/invoke.js"></script>
+    </div>
 
+    <a href="https://google.com" id="red-btn" class="btn">Continuar al enlace</a>
+  </div>
+
+  <script>
+    let timeLeft = 5;
+    const timerElement = document.getElementById('countdown');
+    const btn = document.getElementById('red-btn');
+
+    const interval = setInterval(() => {
+      timeLeft--;
+      timerElement.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        timerElement.textContent = "¡Listo!";
+        btn.classList.add('active');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
